@@ -9,7 +9,7 @@ namespace TraderSys.Portfolios.ClientConsole
 {
     class Program
     {
-        private const string ServerAddress = "https://localhost:5001";
+        private const string ServerAddress = "https://localhost:44302";
 
         static async Task Main(string[] args)
         {
@@ -48,6 +48,8 @@ namespace TraderSys.Portfolios.ClientConsole
                 {
                     Console.WriteLine("Permission denied.");
                 }
+                else
+                { Console.WriteLine(e.Message); }
             }
         }
 

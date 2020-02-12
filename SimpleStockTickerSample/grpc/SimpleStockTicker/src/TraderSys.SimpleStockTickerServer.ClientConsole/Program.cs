@@ -13,11 +13,11 @@ namespace TraderSys.SimpleStockTickerServer.ClientConsole
     {
         static async Task Main(string[] args)
         {
-            using var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            using var channel = GrpcChannel.ForAddress("https://localhost:44313");
             var client = new SimpleStockTicker.SimpleStockTickerClient(channel);
 
             var request = new SubscribeRequest();
-            request.Symbols.AddRange(args);
+            request.Symbols.AddRange(new string[] { "MSFT", "APPL" });
             using var stream = client.Subscribe(request);
 
             var tokenSource = new CancellationTokenSource();
